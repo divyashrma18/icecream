@@ -1,0 +1,247 @@
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 815px;
+    background: radial-gradient(circle at center, #5c3a24 0%, #3a2417 70%, #2a1a11 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+  }
+  
+  .hero .ice {
+    position: absolute;
+    /* position: fixed; */
+    width: 600px;
+    height: 500px;
+    height: auto;
+ top: 160px;
+ left: 750px;
+    z-index: 10000;
+    transform: translateX(-50%);
+  }
+
+  .hero h2 {
+    position: absolute;
+    font-family: "Rowdies", sans-serif;
+    font-size: 150px;
+    color: #d7b89c; /* light creamy brown */
+    z-index: 1;
+    top: 140px;
+  }
+  .hero-text h3 {
+    position: relative;
+    font-size: 36px;
+    font-family: "Rowdies", sans-serif;
+    color: #f3e1d2; /* warm creamy tone */
+   bottom:-210px;
+   right: 400px;
+  }
+  .hero-text p {
+    position: relative;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    bottom: -180px;
+   width: 300px;
+   right: 400px;
+
+    color: #f0dbcb; /* soft contrast against background */
+  }
+  .cof{
+    position: absolute;
+    bottom: 90px;
+    width: 800px;
+    height: 800px;
+  }
+  .chat{
+    position: absolute;
+   left: 100px;
+    width: 200px;
+    height: 200px;
+    z-index: 100;
+  }
+  .chat1{
+    position: absolute;
+   right: 100px;
+   bottom: 100px;
+    width: 200px;
+    height: 200px;
+    z-index: 100;
+
+  }
+  .chat2{
+    position: absolute;
+   right: 100px;
+  top: 100px;
+    width: 200px;
+    height: 200px;
+    z-index: 100;
+
+  }
+
+  .overlay{
+    position: relative;
+    bottom: 500px;
+    left: 670px;
+
+
+  }
+  .section1 {
+    background: linear-gradient(to bottom, #4b2e1f, #2f1a12); /* rich chocolate gradient */
+ position: relative;
+    color: #f0e0d6;
+    width: 100vw;
+    height: 800px;
+  }
+  
+  .section1-img {
+    position: relative;
+   top: 250px;
+   left: 100px;
+   width: 500px;
+   height: 100px;
+
+  }
+  
+  .section1-text {
+    position: absolute;
+    max-width: 500px;
+    color: #f5e2d5;
+    right: 100px;
+    top: 150px;
+  }
+  
+  .section1-text h3 {
+    font-size: 40px;
+    font-family: "Rowdies", sans-serif;
+    color: #f3d6c3; /* creamy tone */
+    margin-bottom: 20px;
+  }
+  
+  .section1-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    font-family: 'Arial', sans-serif;
+    color: #f0dbcb;
+  }
+.section2{
+  position: relative;
+  color: #f0e0d6;
+  width: 100vw;
+  height: 800px;
+  background: linear-gradient(to bottom, #563728, #3f2218);
+  display: flex;
+/* padding: 100px; */
+  /* justify-content: center; */
+  /* Vanilla white → light cream → caramel latte → deep cocoa */
+
+}
+.section2 .curve1{
+  width: 520px;
+  height: 370px;
+  background: linear-gradient(to bottom, #f2b4c8, #ffffff);
+  position: absolute;
+  top: 640px;
+  left: 80px;
+  border-radius: 0 100% 100% 0;
+  transform: rotate(-90deg);
+  transform-origin: top left; /* optional: controls where the rotation pivots from */
+
+}
+.curve1 .straw{
+  position: absolute;
+  top: 20px;
+  left: 250px;
+  width: 300px;
+  height: 350px;
+}
+.curve1 h3{
+  position: absolute;
+  font-size: 40px;
+  left: 20px;
+  top: -20px;
+}
+.curve1 .three{
+  position: absolute;
+  left: 20px;
+  top: -670px;
+  width: 530px;
+  height: 600px;
+  transform: rotate(-270deg);
+  transform-origin: left bottom;
+}
+.curve2{
+  width: 520px;
+  height: 370px;
+  background: linear-gradient(to bottom, #7b4b35, #f6eee4);
+  position: absolute;
+  top: 640px;
+  left: 530px;
+  border-radius: 0 100% 100% 0;
+  transform: rotate(-90deg);
+  transform-origin: top left; /* optional: controls where the rotation pivots from */
+
+}
+.curve2 h3{
+  position: absolute;
+  font-size: 40px;
+  left: 20px;
+}
+.curve2 .c1{
+  width: 320px;
+  height:280px;
+  transform: rotate(-270deg);
+  position: absolute;
+  top: 50px;
+  left: 250px;
+}
+.curve2 .sweet{
+  z-index: 99;
+}
+.curve3{
+  width: 520px;
+  height: 370px;
+  background: linear-gradient(to bottom, #b4d3a4, #f6f4ed);
+  position: absolute;
+  top: 640px;
+  left: 1000px;
+  border-radius: 0 100% 100% 0;
+  transform: rotate(-90deg);
+  transform-origin: top left; /* optional: controls where the rotation pivots from */
+}
+.curve3 h3{
+  position: absolute;
+  font-size: 40px;
+  left: 20px;
+}
+.curve2 h3{
+  position: absolute;
+  font-size: 40px;
+  left: 20px;
+  top: -30px;
+  z-index: 999;
+}
+.curve3 .wtf{
+  width: 320px;
+  height:280px;
+  transform: rotate(-270deg);
+  position: absolute;
+  top: 50px;
+  left: 250px;
+}
+.curve3 .two{
+  position: absolute;
+  left: -580px;
+  top: -290px;
+  width: 530px;
+  height: 760px;
+  transform-origin: right bottom;
+
+  transform: rotate(-270deg);
+}
+.hero h2,
+.ice {
+  will-change: transform, opacity;
+}
