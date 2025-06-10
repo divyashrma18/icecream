@@ -8,14 +8,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const iceRef = useRef(null);
-  const sectionRef = useRef(null);
   const chatRef = useRef(null);
   const chat1Ref = useRef(null);
   const chat2Ref = useRef(null);
+  const sectionRef = useRef(null);
   const section1HeadingRef = useRef(null);
   const section1ParaRef = useRef(null);
+
+  // Section2 spin animations
   useEffect(() => {
-    // Animate .three (left side)
     gsap.fromTo(
       ".three",
       { rotate: -180 },
@@ -28,58 +29,41 @@ const Hero = () => {
           trigger: ".section2",
           start: "top 95%",
           toggleActions: "play reverse play reverse",
-          markers: false, 
+          markers: false,
         },
       }
     );
-  gsap.fromTo(
-    ".two",
-    {rotate:-360},
-    {
-      rotate:-270,
-      duration:1.8,
-      ease:"power2.inOut",
-      transformOrigin:"right bottom",
-      scrollTrigger:{
-        trigger:".section2",
-        start:"top 95%",
-        toggleActions:"play reverse play reverse",
-        markers: false,
+
+    gsap.fromTo(
+      ".two",
+      { rotate: -360 },
+      {
+        rotate: -270,
+        duration: 1.8,
+        ease: "power2.inOut",
+        transformOrigin: "right bottom",
+        scrollTrigger: {
+          trigger: ".section2",
+          start: "top 95%",
+          toggleActions: "play reverse play reverse",
+          markers: false,
+        },
       }
-    }
-  )
-    
-   
+    );
   }, []);
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  // Section1 text reveal on scroll
   useEffect(() => {
     const heading = section1HeadingRef.current;
     const paragraph = section1ParaRef.current;
 
-    // Set initial states
     gsap.set([heading, paragraph], { opacity: 0, x: 100 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top 80%",
-        toggleActions: "play none none none", // play only once
+        toggleActions: "play none none none",
       },
     });
 
@@ -88,32 +72,26 @@ const Hero = () => {
       opacity: 1,
       duration: 1,
       ease: "power3.out",
-    }).to(
-      paragraph,
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-      },
-      "+=0.2"
-    );
+    }).to(paragraph, {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+    }, "+=0.2");
   }, []);
 
+  // Hero section intro animation on load
   useEffect(() => {
     const h2 = document.querySelector(".hero h2");
     const ice = iceRef.current;
     const heroTextH3 = document.querySelector(".hero-text h3");
     const heroTextP = document.querySelector(".hero-text p");
 
-    // Set initial states to avoid flickering
     gsap.set([h2, ice, heroTextH3, heroTextP], { opacity: 0 });
     gsap.set(h2, { x: 200 });
     gsap.set(ice, { y: 200 });
-    gsap.set(heroTextH3, { y: 50 });
-    gsap.set(heroTextP, { y: 50 });
+    gsap.set([heroTextH3, heroTextP], { y: 50 });
 
-    // Animate on load
     const tl = gsap.timeline();
 
     tl.to(h2, {
@@ -121,39 +99,27 @@ const Hero = () => {
       opacity: 1,
       duration: 1,
       ease: "power3.out",
-    })
-      .to(
-        ice,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-        },
-        "-=0.5"
-      )
-      .to(
-        heroTextH3,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "+=0.2"
-      ) // slight delay after ice
-      .to(
-        heroTextP,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.3"
-      ); // overlap slightly with h3
+    }).to(ice, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+    }, "-=0.5")
+      .to(heroTextH3, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+      }, "+=0.2")
+      .to(heroTextP, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+      }, "-=0.3");
   }, []);
 
+  // Hero assets scroll-based transition
   useEffect(() => {
     const ice = iceRef.current;
     const chat = chatRef.current;
@@ -171,53 +137,31 @@ const Hero = () => {
       },
     });
 
-    // Animate each element to different positions
-    tl.to(
-      ice,
-      {
-        x: -400,
-        y: 830,
-        ease: "power1.out",
-      },
-      0
-    ) // 0 means they all start together
-
-      .to(
-        chat,
-        {
-          x: 40,
-          y: 680,
-          ease: "power1.out",
-        },
-        0
-      )
-
-      .to(
-        chat1,
-        {
-          x: -1000,
-          y: 850,
-          ease: "power1.out",
-        },
-        0
-      )
-
-      .to(
-        chat2,
-        {
-          x: -780,
-          y: 1150,
-          ease: "power1.out",
-        },
-        0
-      );
-
-    // Only ice continues further
     tl.to(ice, {
-      x: -10,
-      y: 1600,
+      x: -400,
+      y: 830,
       ease: "power1.out",
-    });
+    }, 0)
+      .to(chat, {
+        x: 40,
+        y: 680,
+        ease: "power1.out",
+      }, 0)
+      .to(chat1, {
+        x: -1000,
+        y: 850,
+        ease: "power1.out",
+      }, 0)
+      .to(chat2, {
+        x: -780,
+        y: 1150,
+        ease: "power1.out",
+      }, 0)
+      .to(ice, {
+        x: -10,
+        y: 1600,
+        ease: "power1.out",
+      });
   }, []);
 
   return (
@@ -226,8 +170,9 @@ const Hero = () => {
         <Navbar />
         <h2>CHOCOLATE</h2>
 
-        <img ref={iceRef} src="./images/1.png" alt="" className="ice" />
-        <img src="./images/coffee.png" alt="" className="cof" />
+        <img ref={iceRef} src="./images/1.png" alt="Ice cream" className="ice" />
+        <img src="./images/coffee.png" alt="Coffee" className="cof" />
+
         <div className="hero-text">
           <h3>Creamy Chocolate</h3>
           <p>
@@ -235,9 +180,10 @@ const Hero = () => {
             cream — a dreamy blend of sweetness and cocoa delight.
           </p>
         </div>
-        <img ref={chatRef} src="./images/chat.png" alt="" className="chat" />
-        <img ref={chat1Ref} src="./images/chat.png" alt="" className="chat1" />
-        <img ref={chat2Ref} src="./images/chat.png" alt="" className="chat2" />
+
+        <img ref={chatRef} src="./images/chat.png" alt="Chat" className="chat" />
+        <img ref={chat1Ref} src="./images/chat.png" alt="Chat" className="chat1" />
+        <img ref={chat2Ref} src="./images/chat.png" alt="Chat" className="chat2" />
       </div>
 
       <div className="section1" ref={sectionRef}>
@@ -250,57 +196,36 @@ const Hero = () => {
             />
           </svg>
         </div>
-    <div className="section1-text">
-      <h3 ref={section1HeadingRef}> Pure Chocolate Bliss</h3>
-      <p ref={section1ParaRef}>Dive into the decadence of our handcrafted chocolate ice cream —
+
+        <div className="section1-text">
+          <h3 ref={section1HeadingRef}>Pure Chocolate Bliss</h3>
+          <p ref={section1ParaRef}>
+            Dive into the decadence of our handcrafted chocolate ice cream —
             smooth, rich, and made to melt hearts with every bite. Each scoop is
             a celebration of cocoa, churned to perfection for an irresistibly
             creamy texture. Made with the finest ingredients, it’s a comforting
             treat that brings warmth and joy with every taste. Whether you're
             savoring it solo or sharing with someone special, this chocolate
-            delight promises a moment of pure happiness</p>
-    </div>
+            delight promises a moment of pure happiness.
+          </p>
+        </div>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
       <div className="section2 flex">
         <div className="curve1">
-          <img src="./images/section2.png" alt="" className="straw" />
-          <img src="./images/three.png" alt="" className="three" />
+          <img src="./images/section2.png" alt="Strawberry" className="straw" />
+          <img src="./images/three.png" alt="Decoration" className="three" />
           <h3 className="sweet">Sweet Strawberry</h3>
         </div>
+
         <div className="curve2">
-          <img src="./images/c1.png" alt="" className="c1" />
-          {/* <img src="./images/three.png" alt="" className='three' /> */}
+          <img src="./images/c1.png" alt="Chocolate" className="c1" />
           <h3 className="sweet">Creamy Chocolate</h3>
         </div>
+
         <div className="curve3">
-          <img src="./images/wtf.png" alt="" className="wtf" />
-          <img src="./images/two.png" alt="" className="two" />
+          <img src="./images/wtf.png" alt="Pistachio" className="wtf" />
+          <img src="./images/two.png" alt="Decoration" className="two" />
           <h3 className="sweet">Nutty Pistachio</h3>
         </div>
       </div>
