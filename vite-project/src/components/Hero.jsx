@@ -224,7 +224,7 @@ const Hero = () => {
         </div>
 
         <div className="curve3">
-          <img src="./images/wtf.png" alt="Pistachio" className="wtf" />
+          <img src="./images/pista-bg.png" alt="Pistachio" className="wtf" />
           <img src="./images/two.png" alt="Decoration" className="two" />
           <h3 className="sweet">Nutty Pistachio</h3>
         </div>
