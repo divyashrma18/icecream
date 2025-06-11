@@ -15,7 +15,7 @@ const Hero = () => {
   const section1HeadingRef = useRef(null);
   const section1ParaRef = useRef(null);
 
-  // Section2 spin animations
+
   useEffect(() => {
     gsap.fromTo(
       ".three",
@@ -52,7 +52,7 @@ const Hero = () => {
     );
   }, []);
 
-  // Section1 text reveal on scroll
+
   useEffect(() => {
     const heading = section1HeadingRef.current;
     const paragraph = section1ParaRef.current;
@@ -80,7 +80,7 @@ const Hero = () => {
     }, "+=0.2");
   }, []);
 
-  // Hero section intro animation on load
+  
   useEffect(() => {
     const h2 = document.querySelector(".hero h2");
     const ice = iceRef.current;
@@ -119,7 +119,7 @@ const Hero = () => {
       }, "-=0.3");
   }, []);
 
-  // Hero assets scroll-based transition
+
   useEffect(() => {
     const ice = iceRef.current;
     const chat = chatRef.current;
